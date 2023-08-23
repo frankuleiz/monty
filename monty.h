@@ -46,5 +46,8 @@ FILE *file;
 void (*operator_function)(stack_t **, unsigned int);
 void (*go(char *op_f, unsigned int l, stack_t **s))(stack_t**, unsigned int);
 
+/* prototypes */
+void _push(stack_t **stack, unsigned int line_number, char *temp);
+void _pall(stack_t **stack, unsigned int line_number);
 
 #endif
