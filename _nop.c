@@ -1,6 +1,6 @@
 #include "monty.h"
 /**
- * _nop - if there is no operation
+ * _nop - when there is no operation
  * @stack: the top of the stack
  * @line_number: Displays the instructions
  * Return: void
