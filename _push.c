@@ -16,7 +16,7 @@ void _push(stack_t **stack, unsigned int line_number, char *temp)
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		fclose(file);
-		_free(*stck);
+		_free(*stack);
 		exit(EXIT_FAILURE);
 		if (_isdigit(temp) == 1)
 		{

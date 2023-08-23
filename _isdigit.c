@@ -1,4 +1,4 @@
-#include "monty"
+#include "monty.h"
 /**
  * _isdigit - checks if is digit or not
  * @str: character passed in
