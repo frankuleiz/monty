@@ -43,6 +43,8 @@ typedef struct instruction_s
 extern FILE *file;
 FILE *file;
 
+void (*operator_function)(stack_t **, unsigned int);
+void (*go(char *op_f, unsigned int l, stack_t **s))(stack_t**, unsigned int);
 
 
 #endif
