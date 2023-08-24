@@ -8,7 +8,8 @@
 int main(int argc, char *argv[])
 {
 	stack_t *head = NULL;
-	char *str = NULL, *operator_array[2], *temp;
+	char *operator_array[2], *temp;
+	char str[1024];
 	size_t bufsize = 1024, line_count = 0;
 	void (*operator_function)(stack_t **stack, unsigned int);
 
@@ -19,10 +20,10 @@ int main(int argc, char *argv[])
 	file = fopen(argv[1], "r");
 	if (file == NULL)
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]), exit(EXIT_FAILURE);
-	while (1)
+ /* printf("%s\n", str); */
+	while (fgets(str, bufsize, file))
 	{
-		if (fgets(str, bufsize, file) == NULL)
-			break;
+		printf("%s\n", str);
 		line_count++;
 		operator_array[0] = strtok(str, "\n ");
 		if (operator_array[0] == NULL)
@@ -42,6 +43,6 @@ int main(int argc, char *argv[])
 			operator_function(&head, line_count);
 		}
 	}
-	fclose(file), free(str), _free(head);
+	fclose(file), _free(head);
 	return (0);
 }
