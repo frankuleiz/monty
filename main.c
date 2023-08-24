@@ -43,7 +43,8 @@ int main(int argc, char *argv[])
 		}
 		if (strcmp(operator_array[0], "push") != 0 &&
 				strcmp(operator_array[0], "pall") != 0 &&
-				strcmp(operator_array[0], "pint") != 0)
+				strcmp(operator_array[0], "pint") != 0 &&
+				strcmp(operator_array[0], "pop") != 0)
 			printf("%s\n", str);
 	}
 
