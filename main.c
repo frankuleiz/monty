@@ -10,6 +10,7 @@ int main(int argc, char *argv[])
 	stack_t *head = NULL;
 	char *operator_array[2], *temp;
 	char str[1024];
+	struct stat file_info;
 	size_t bufsize = 1024, line_count = 0;
 	void (*operator_function)(stack_t **stack, unsigned int);
 
@@ -17,6 +18,10 @@ int main(int argc, char *argv[])
 	{
 		fprintf(stderr, "USAGE: monty file\n"), exit(EXIT_FAILURE);
 	}
+	if (stat(argv[1], &file_info) != 0)
+		perror("Error in stat"), exit(EXIT_FAILURE);
+	if (!S_ISREG(file_info.st_mode) || access(argv[1], R_OK) != 0)
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]), exit(EXIT_FAILURE);
 	file = fopen(argv[1], "r");
 	if (file == NULL)
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]), exit(EXIT_FAILURE);
